@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HomePage {
 
@@ -22,5 +23,15 @@ public class HomePage {
 
     public static void clickOnlineProductsMenuItem() {
 
+    }
+
+    protected WebElement find(By locator) {
+
+        return driver.findElement(locator);
+    }
+
+
+    protected void click (By locator) {
+        find(locator).click();
     }
 }
