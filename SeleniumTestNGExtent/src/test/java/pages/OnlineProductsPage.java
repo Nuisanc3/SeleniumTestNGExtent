@@ -14,16 +14,20 @@ public class OnlineProductsPage {
     private By sportShoesFirstShoe = By.xpath("/html/body/div[3]/table/tbody/tr[1]/td[1]");
 
     public static String getFormalShoesTitleText() {
+    return "";
     }
 
     public static String getsportsShoesTitleText() {
+        return "";
     }
 
     public static String getSneakerShoesTitleText() {
+        return "";
     }
 
 
     public static void clickFormalShoesDropdown() {
+
     }
 
     public static void clickSportsShoesDropdown() {
@@ -33,10 +37,12 @@ public class OnlineProductsPage {
     }
 
     public static String getFirstFormalShoesTitle() {
+        return "";
 
     }
 
     public static String getFirstSportShoesTitle() {
+        return "";
 
     }
 
