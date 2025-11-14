@@ -3,6 +3,7 @@ package testcases;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.HomePage;
 
 import static pages.HomePage.driver;
 
@@ -17,7 +18,10 @@ public class BaseTest {
     }
 
     @Test
-    void testSteps() {
+    public static void validateTitlesOnTheOnlineProductsPage() throws InterruptedException {
+        HomePage.clickHamburgerMenuButton();
+        HomePage.clickOnlineProductsMenuItem();
+
 
     }
 }

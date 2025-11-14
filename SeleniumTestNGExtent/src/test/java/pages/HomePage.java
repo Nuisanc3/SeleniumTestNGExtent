@@ -7,8 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HomePage {
 
-    private By hamburgerMenuButton = By.id("menuToggle");
-    private By onlineProductsMenuItem = By.xpath("//li[text()='Online Products']");
+    private static By hamburgerMenuButton = By.xpath("//input[@type='checkbox']");
+    private static By onlineProductsMenuItem = By.xpath("//li[text()='Online Products']");
 
     public static WebDriver driver;
 
@@ -18,21 +18,23 @@ public class HomePage {
         HomePage.driver = driver;
     }
     public static void clickHamburgerMenuButton() {
-
+        click(hamburgerMenuButton);
     }
 
 
-    public static void clickOnlineProductsMenuItem() {
+    public static void clickOnlineProductsMenuItem() throws InterruptedException {
+        Thread.sleep(2000);
+        click(onlineProductsMenuItem);
 
     }
 
-    protected WebElement find(By locator) {
+    protected static WebElement find(By locator) {
 
         return driver.findElement(locator);
     }
 
 
-    protected void click (By locator) {
+    protected static void click(By locator) {
         find(locator).click();
     }
 }
