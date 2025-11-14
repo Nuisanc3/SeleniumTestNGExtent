@@ -1,4 +1,26 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
 public class HomePage {
+
+    private By hamburgerMenuButton = By.id("menuToggle");
+    private By onlineProductsMenuItem = By.xpath("//li[text()='Online Products']");
+
+    public static WebDriver driver;
+
+    // Basically the idea here is to allow child classed to access this Driver and set the driver
+    public void setDriver(WebDriver driver) {
+
+        HomePage.driver = driver;
+    }
+    public static void clickHamburgerMenuButton() {
+
+    }
+
+
+    public static void clickOnlineProductsMenuItem() {
+
+    }
 }
