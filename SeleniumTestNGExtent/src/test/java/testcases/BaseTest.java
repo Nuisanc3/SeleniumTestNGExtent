@@ -4,9 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.HomePage;
 import pages.OnlineProductsPage;
 
@@ -21,7 +19,7 @@ public class BaseTest {
     static ExtentTest test;
     static ExtentReports extent = new ExtentReports();
 
-    @BeforeTest
+    @BeforeSuite
     public static void setUp() throws InterruptedException {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -42,23 +40,29 @@ public class BaseTest {
         OnlineProductsPage.getFormalShoesTitleText_Verify();
         OnlineProductsPage.getsportsShoesTitleText_Verify();
         OnlineProductsPage.getSneakerShoesTitleText_Verify();
-        extent.flush(); // This is mandatory so that report gets generated.
+       //  extent.flush(); // This is mandatory so that report gets generated. Added in the AfterSuite class
     }
 
     @Test
     public static void validateFirstFormalShoes() {
+        test = extent.createTest("Validate shoe titles on the first formal shoe",
+                "This test validates that the first formal shoe");
         OnlineProductsPage.clickFormalShoesDropdown();
         OnlineProductsPage.getFirstFormalShoesTitle_Verify();
     }
 
     @Test
     public static void validateFirstSportsShoes() {
+        test = extent.createTest("Validate shoe titles on the first sports shoe",
+                "This test validates that the first sports shoe");
         OnlineProductsPage.clickSportsShoesDropdown();
         OnlineProductsPage.getFirstSportShoesTitle_Verify();
     }
 
-    @AfterTest
-    public static void tearDown() {
+    @AfterSuite
+    public static void tearDown()
+    {
         driver.quit();
+        extent.flush();
     }
 }
