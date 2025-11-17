@@ -1,5 +1,8 @@
 package testcases;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -11,11 +14,22 @@ import static pages.HomePage.driver;
 
 public class BaseTest {
 
+    // This following section is important for reporting
+    // Add maven dependency - Extent reports
+    // Then google Extent report usage - From official site look how to use it.
+    static ExtentReports report;
+    static ExtentTest test;
+    static ExtentReports extent = new ExtentReports();
+
     @BeforeTest
     public static void setUp() throws InterruptedException {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/index.html");
+        //following line is for creating the report attachment.
+        ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+        // We do want the reporter to be attached
+        extent.attachReporter(spark); // Now report will start getting generated
         HomePage.clickHamburgerMenuButton();
         HomePage.clickOnlineProductsMenuItem();
 
@@ -23,9 +37,12 @@ public class BaseTest {
 
     @Test
     public static void validateTitlesOnTheOnlineProductsPage() throws InterruptedException {
+        test = extent.createTest("Validate shoe titles on the products page",
+                "This test validates that the different shoe types are correct on the online products page");
         OnlineProductsPage.getFormalShoesTitleText_Verify();
         OnlineProductsPage.getsportsShoesTitleText_Verify();
         OnlineProductsPage.getSneakerShoesTitleText_Verify();
+        extent.flush(); // This is mandatory so that report gets generated.
     }
 
     @Test
