@@ -1,11 +1,13 @@
 package pages;
 
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import static Utilities.GetUtility.getText;
 import static pages.HomePage.click;
 import static pages.HomePage.find;
+import static testcases.BaseTest.test;
 
 public class OnlineProductsPage {
 
@@ -37,13 +39,15 @@ public class OnlineProductsPage {
     }
 
 
-    public static void clickFormalShoesDropdown() {
+    public static void clickFormalShoesDropdown() throws InterruptedException {
+        Thread.sleep(2000);
         click(formalShoesDropdown);
 
 
     }
 
-    public static void clickSportsShoesDropdown() {
+    public static void clickSportsShoesDropdown() throws InterruptedException {
+        Thread.sleep(2000);
         click(sportsShoesDropdown);
 
     }
@@ -55,6 +59,9 @@ public class OnlineProductsPage {
         String actualFirstShoeFS = getText(formalShoesFirstShoe);
         String expectedFirstShoeFS = "   Classic Cheltenham";
         Assert.assertEquals(actualFirstShoeFS, expectedFirstShoeFS);
+        if (actualFirstShoeFS.equals(expectedFirstShoeFS)) {
+            test.log(Status.PASS, "Tests passed for the title verification for formal shoes");
+        }
     }
 
     public static void getFirstSportShoesTitle_Verify() {

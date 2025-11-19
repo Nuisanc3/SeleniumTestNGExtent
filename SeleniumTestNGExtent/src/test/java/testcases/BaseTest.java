@@ -16,7 +16,7 @@ public class BaseTest {
     // Add maven dependency - Extent reports
     // Then google Extent report usage - From official site look how to use it.
     static ExtentReports report;
-    static ExtentTest test;
+    public static ExtentTest test;
     static ExtentReports extent = new ExtentReports();
 
     @BeforeSuite
@@ -44,7 +44,7 @@ public class BaseTest {
     }
 
     @Test
-    public static void validateFirstFormalShoes() {
+    public static void validateFirstFormalShoes() throws InterruptedException {
         test = extent.createTest("Validate shoe titles on the first formal shoe",
                 "This test validates that the first formal shoe");
         OnlineProductsPage.clickFormalShoesDropdown();
@@ -52,7 +52,7 @@ public class BaseTest {
     }
 
     @Test
-    public static void validateFirstSportsShoes() {
+    public static void validateFirstSportsShoes() throws InterruptedException {
         test = extent.createTest("Validate shoe titles on the first sports shoe",
                 "This test validates that the first sports shoe");
         OnlineProductsPage.clickSportsShoesDropdown();
