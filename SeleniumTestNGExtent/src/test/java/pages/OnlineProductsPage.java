@@ -35,6 +35,8 @@ public class OnlineProductsPage {
         Assert.assertEquals(actualTitleSS, expectedTitleSS);
         if (actualTitleSS.equals(actualTitleSS)) {
             test.log(Status.PASS, "Tests passed for the title verification for sports shoes");
+        } else  {
+            test.log(Status.FAIL, "Tests passed for the title verification for sports shoes");
         }
     }
 
@@ -44,6 +46,8 @@ public class OnlineProductsPage {
         Assert.assertEquals(actualTitleSnS, expectedTitleSnS);
         if (actualTitleSnS.equals(expectedTitleSnS)) {
             test.log(Status.PASS, "Tests passed for the title verification for sneaker shoes");
+        } else {
+            test.log(Status.FAIL, "Tests passed for the title verification for sneaker shoes");
         }
     }
 
@@ -70,6 +74,8 @@ public class OnlineProductsPage {
         Assert.assertEquals(actualFirstShoeFS, expectedFirstShoeFS);
         if (actualFirstShoeFS.equals(expectedFirstShoeFS)) {
             test.log(Status.PASS, "Tests passed for the title verification for FIRST formal shoes");
+        } else {
+            test.log(Status.FAIL, "Tests passed for the title verification for FIRST formal shoes");
         }
     }
 
@@ -79,6 +85,8 @@ public class OnlineProductsPage {
         Assert.assertEquals(actualFirstShoeSS, expectedFirstShoeSS);
         if (expectedFirstShoeSS.equals(expectedFirstShoeSS)) {
             test.log(Status.PASS, "Tests passed for the title verification for FIRST sports shoes");
+        } else {
+            test.log(Status.FAIL, "Tests passed for the title verification for FIRST sports shoes");
         }
 
     }
