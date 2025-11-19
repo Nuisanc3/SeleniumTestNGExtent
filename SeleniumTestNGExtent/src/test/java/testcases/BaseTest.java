@@ -3,10 +3,18 @@ package testcases;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import pages.HomePage;
 import pages.OnlineProductsPage;
+
+import java.io.File;
+import java.io.IOException;
 
 import static pages.HomePage.driver;
 
@@ -57,6 +65,15 @@ public class BaseTest {
                 "This test validates that the first sports shoe");
         OnlineProductsPage.clickSportsShoesDropdown();
         OnlineProductsPage.getFirstSportShoesTitle_Verify();
+    }
+
+@AfterTest
+    public void takeScreenshot(WebDriver driver) throws IOException, IOException {
+            File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File destination = new File( "/src/../ExecImages/" + System.currentTimeMillis() + ".png");
+            System.out.println("Screenshot located at" + destination);
+
+        }
     }
 
     @AfterSuite
