@@ -24,18 +24,27 @@ public class OnlineProductsPage {
     String actualTitleFS =  getText(formalShoesTitle);
     String expectedTitleFS = "Formal Shoes";
         Assert.assertEquals(actualTitleFS, expectedTitleFS);
+        if (actualTitleFS.equals(expectedTitleFS)) {
+            test.log(Status.PASS, "Tests passed for the title verification for formal shoes");
+        }
     }
 
     public static void getsportsShoesTitleText_Verify() {
         String actualTitleSS =  getText(sportsShoesTitle);
         String expectedTitleSS = "Sports Shoes";
         Assert.assertEquals(actualTitleSS, expectedTitleSS);
+        if (actualTitleSS.equals(actualTitleSS)) {
+            test.log(Status.PASS, "Tests passed for the title verification for sports shoes");
+        }
     }
 
     public static void getSneakerShoesTitleText_Verify() {
         String actualTitleSnS =  getText(SneakerShoesTitle);
         String expectedTitleSnS = "Sneakers";
         Assert.assertEquals(actualTitleSnS, expectedTitleSnS);
+        if (actualTitleSnS.equals(expectedTitleSnS)) {
+            test.log(Status.PASS, "Tests passed for the title verification for sneaker shoes");
+        }
     }
 
 
@@ -60,14 +69,17 @@ public class OnlineProductsPage {
         String expectedFirstShoeFS = "   Classic Cheltenham";
         Assert.assertEquals(actualFirstShoeFS, expectedFirstShoeFS);
         if (actualFirstShoeFS.equals(expectedFirstShoeFS)) {
-            test.log(Status.PASS, "Tests passed for the title verification for formal shoes");
+            test.log(Status.PASS, "Tests passed for the title verification for FIRST formal shoes");
         }
     }
 
     public static void getFirstSportShoesTitle_Verify() {
-        String actualFirstShoeFS = getText(sportShoesFirstShoe);
-        String expectedFirstShoeFS = "   Ultimate";
-        Assert.assertEquals(actualFirstShoeFS, expectedFirstShoeFS);
+        String actualFirstShoeSS = getText(sportShoesFirstShoe);
+        String expectedFirstShoeSS = "   Ultimate";
+        Assert.assertEquals(actualFirstShoeSS, expectedFirstShoeSS);
+        if (expectedFirstShoeSS.equals(expectedFirstShoeSS)) {
+            test.log(Status.PASS, "Tests passed for the title verification for FIRST sports shoes");
+        }
 
     }
 
