@@ -16,6 +16,7 @@ import pages.OnlineProductsPage;
 import java.io.File;
 import java.io.IOException;
 
+import static BaseTest.extent;
 import static pages.HomePage.driver;
 
 public class BaseTest {
@@ -23,9 +24,9 @@ public class BaseTest {
     // This following section is important for reporting
     // Add maven dependency - Extent reports
     // Then google Extent report usage - From official site look how to use it.
-    static ExtentReports report;
+    public static ExtentReports report;
     public static ExtentTest test;
-    static ExtentReports extent = new ExtentReports();
+    public static ExtentReports extent = new ExtentReports();
 
     @BeforeSuite
     public static void setUp() throws InterruptedException {
@@ -77,9 +78,8 @@ public class BaseTest {
     }
 
     @AfterSuite
-    public static void tearDown()
-    {
+    public static void tearDown() {
         driver.quit();
-        extent.flush();
+        BaseTest.extent.flush();
     }
 }
